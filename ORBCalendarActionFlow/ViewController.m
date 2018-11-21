@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+#import "ORBCalendarActionFlow.h"
 @interface ViewController ()
 
 @end
@@ -19,5 +20,12 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+- (IBAction)showCalendarActionSheet:(id)sender{
+    ORBCalendarActionFlow *flow =
+    [[ORBCalendarActionFlow alloc] initWithTargetViewController:self selectDate:[NSDate date]];
+    [flow didSelectDate:^(NSDate *selectedDate){
+        NSLog(@"selectedDate: %@", selectedDate);
+    }];
+}
 
 @end
